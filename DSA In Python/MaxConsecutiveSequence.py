@@ -3,7 +3,7 @@ nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
 my_set = set(nums)
 # check for the first item
 maxi = 0
-for num in nums:
+for num in my_set:
     if num - 1 not in my_set:
         current = num
         count = 1
