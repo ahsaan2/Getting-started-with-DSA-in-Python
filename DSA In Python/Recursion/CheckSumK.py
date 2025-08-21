@@ -49,4 +49,37 @@ k = 8
 my_list1 = []
 my_list = []
 print(check(0, nums, k, my_list, my_list1))
+
+
 # print(my_list1)
+
+
+#  Count all the subsequences with the sum = K
+
+
+def checkCount(index, nums, target, my_list, count) -> int:
+    if index == len(nums):
+        if target == 0:
+            print("are we here")
+            # count += 1
+            # print(count)
+            return 1
+        else:
+            return 0
+    pick = 0
+    if nums[index] <= target:
+        my_list.append(nums[index])
+        pick = checkCount(index + 1, nums, target - nums[index], my_list, count)
+        my_list.pop()
+    notpick = checkCount(index + 1, nums, target, my_list, count)
+    return pick + notpick
+
+
+# nums = [10, 1, 2, 7, 6, 1, 5]
+nums = 7, 18, 6, 11, 2, 4
+k = 6
+# k = 8
+my_list1 = []
+
+print(checkCount(0, nums, k, my_list, 0))
+# print(count)
